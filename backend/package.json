@@ -2,13 +2,17 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Real time chat",
-  "main": "src/server.js",
+  "main": "index.js",
   "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "module",
   "author": "Jeziel Almeida",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "ws": "^8.14.2"
   }
 }

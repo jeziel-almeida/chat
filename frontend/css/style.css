@@ -137,6 +137,16 @@ body {
     line-height: 22px;
 }
 
+.user--joined {
+    align-self: center;
+    padding: 4px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+}
+
 .message--self {
     background-color: var(--text-light);
     color: var(--text-dark);

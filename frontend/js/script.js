@@ -59,21 +59,43 @@ const createMessageOtherElement = (name, color, content) => {
 
 }
 
+const createUserJoinedElement = (name) => {
+
+    const p = document.createElement('p');
+    const span = document.createElement('span');
+
+    span.innerHTML = name;
+    p.appendChild(span);
+    p.innerHTML += ' entrou na conversa'
+
+    p.classList.add('user--joined');
+
+    return p;
+}
+
 const getRandomColor = () => {
     const randomIndex = Math.floor(Math.random() * colors.length);
     return colors[randomIndex];
 }
 
 const processMessage = ({ data }) => {
+
     const { userSender, content } = JSON.parse(data);
 
-    if(userSender.id === user.id) {
-        const element = createMessageSelfElement(content);
+    if(content === false) {
+        const element = createUserJoinedElement(userSender);
         chatMessages.appendChild(element);
     } else {
-        const element = createMessageOtherElement(userSender.name, userSender.color, content);
-        chatMessages.appendChild(element);
+
+        if(userSender.id === user.id) {
+            const element = createMessageSelfElement(content);
+            chatMessages.appendChild(element);
+        } else {
+            const element = createMessageOtherElement(userSender.name, userSender.color, content);
+            chatMessages.appendChild(element);
+        }
     }
+
 }
 
 const handleLogin = (e) => {
@@ -87,7 +109,14 @@ const handleLogin = (e) => {
     chat.style.display = 'flex';
 
     websocket = new WebSocket('ws://localhost:8080');
+
     websocket.onmessage = processMessage;
+
+    websocket.onopen = () => websocket.send(JSON.stringify({
+        userSender: user.name,
+        content: false
+    }));
+
 }
 
 const sendMessage = (e) => {

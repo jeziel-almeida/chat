@@ -153,7 +153,6 @@ body {
 
 .message--sender {
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-weight: 700;
-    color: cadetblue;
 }

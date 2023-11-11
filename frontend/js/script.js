@@ -28,7 +28,7 @@ const colors = [
     'Violet', 'Wheat', 'White', 'WhiteSmoke', 'Yellow', 'YellowGreen'
 ];
 
-const user = { id: "", name: "", color: "" }
+const user = { id: '', name: '', color: '' }
 
 let websocket;
 
@@ -123,6 +123,7 @@ const handleLogin = (e) => {
         content: false
     }));
 
+    chatInput.focus();
 }
 
 const handleSendMessage = (e) => {

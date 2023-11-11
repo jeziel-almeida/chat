@@ -78,6 +78,13 @@ const getRandomColor = () => {
     return colors[randomIndex];
 }
 
+const scrollScreen = () => {
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+    })
+}
+
 const processMessage = ({ data }) => {
 
     const { userSender, content } = JSON.parse(data);
@@ -87,15 +94,14 @@ const processMessage = ({ data }) => {
         chatMessages.appendChild(element);
     } else {
 
-        if(userSender.id === user.id) {
-            const element = createMessageSelfElement(content);
-            chatMessages.appendChild(element);
-        } else {
-            const element = createMessageOtherElement(userSender.name, userSender.color, content);
-            chatMessages.appendChild(element);
-        }
+        const message = userSender.id === user.id 
+            ? createMessageSelfElement(content) 
+            : createMessageOtherElement(userSender.name, userSender.color, content);
+        
+        chatMessages.appendChild(message);
     }
 
+    scrollScreen();
 }
 
 const handleLogin = (e) => {
@@ -119,7 +125,7 @@ const handleLogin = (e) => {
 
 }
 
-const sendMessage = (e) => {
+const handleSendMessage = (e) => {
     e.preventDefault();
 
     const message = {
@@ -134,4 +140,4 @@ const sendMessage = (e) => {
 
 loginForm.addEventListener('submit', handleLogin);
 
-chatForm.addEventListener('submit', sendMessage);
+chatForm.addEventListener('submit', handleSendMessage);

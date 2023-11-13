@@ -7,7 +7,12 @@ const loginInput = login.querySelector('.login__input');
 const chat = document.querySelector('.chat');
 const chatForm = chat.querySelector('.chat__form');
 const chatInput = chat.querySelector('.chat__input');
+const chatButton = chat.querySelector('.chat__button');
 const chatMessages = chat.querySelector('.chat__messages');
+
+//wallpaper elements
+const wallpapers = document.querySelector('.wallpapers');
+const body = document.querySelector('body');
 
 const colors = [
     'AliceBlue', 'AntiqueWhite', 'Aqua', 'Aquamarine', 'Azure', 'Beige', 'Bisque',
@@ -92,6 +97,9 @@ const processMessage = ({ data }) => {
     if(content === false) {
         const element = createUserJoinedElement(userSender);
         chatMessages.appendChild(element);
+        chatInput.removeAttribute('disabled');
+        chatInput.setAttribute('placeholder', 'Digite sua mensagem');
+        chatButton.removeAttribute('disabled');
     } else {
 
         const message = userSender.id === user.id 
@@ -137,6 +145,31 @@ const handleSendMessage = (e) => {
     websocket.send(JSON.stringify(message));
     
     chatInput.value = '';
+}
+
+//wallpapers functions
+const showWallpapers = () => {
+    wallpapers.style.display = 'flex';
+}
+
+const hideWallpapers = () => {
+    wallpapers.style.display = 'none';
+}
+
+const setWallpaper = (name, color) => {
+    body.style.backgroundImage = `url('./images/bg-${name}.jpeg')`;
+    chatForm.style.backgroundColor = color;
+    window.localStorage.setItem("currentWallpaper", [name, color]);
+    hideWallpapers();
+}
+
+const storedCurrentWallpaper = window.localStorage.getItem("currentWallpaper");
+
+if(storedCurrentWallpaper) {
+    const [ name, color ] = storedCurrentWallpaper.split(',');
+    setWallpaper(name, color);
+} else {
+    setWallpaper('default', '#191919d6');
 }
 
 loginForm.addEventListener('submit', handleLogin);

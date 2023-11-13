@@ -14,7 +14,7 @@
 }
 
 body {
-    background: url("../images/background.png");
+    background: black;
     color: var(--text-light);
 }
 
@@ -28,6 +28,7 @@ body::-webkit-scrollbar {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .login {
@@ -169,4 +170,80 @@ body::-webkit-scrollbar {
     display: block;
     margin-bottom: 10px;
     font-weight: 700;
+}
+
+.btn-wallpaper {
+    position: absolute;
+    top: 5%;
+    right: 2%;
+    font-size: 32px !important;
+    cursor: pointer;
+}
+
+.wallpapers {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgba(0, 0, 0, 0.8); */
+    background-color: gray;
+    position: absolute;
+    top: 0;
+}
+
+.wallpapers h2 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 50px 0 30px 0;
+}
+
+.wallpapers-wrapper {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.wallpaper-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 24px;
+    cursor: pointer;
+    margin: 24px;
+    border: 2px solid transparent;
+}
+
+.wallpaper-card:hover {
+    border: 2px solid white;
+}
+
+.wallpaper-card img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 24px 24px 0 0;
+}
+
+.wallpaper-card p {
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 10px;
+    background-color: black;
+    width: 100%;
+    border-radius: 0 0 24px 24px;
+    text-align: center;
+    border-top: 1px solid rgb(75, 75, 75);
+}
+
+.btn-close {
+    position: fixed;
+    top: 6%;
+    right: 2%;
+    font-size: 32px !important;
+    cursor: pointer;
 }

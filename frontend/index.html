@@ -35,11 +35,72 @@
             </section>
 
             <form class="chat__form">
-                <input type="text" class="chat__input" placeholder="Digite uma mensagem" required>
-                <button type="submit" class="chat__button">
+                <input type="text" class="chat__input" placeholder="Entrando na conversa..." required disabled>
+                <button type="submit" class="chat__button" disabled>
                     <span class="material-symbols-outlined">send</span>
                 </button>
             </form>
+        </section>
+
+        <span class="material-symbols-outlined btn-wallpaper" onclick="showWallpapers()">
+            wallpaper
+        </span>
+
+        <section class="wallpapers">
+
+            <span class="material-symbols-outlined btn-close" onclick="hideWallpapers()">
+                close
+            </span>
+
+            <h2>Wallpapers</h2>
+
+            <div class="wallpapers-wrapper">
+
+                <div class="wallpaper-card" onclick="setWallpaper('default', '#191919d6')">
+                    <img src="./images/bg-default.jpeg">
+                    <p>Default</p>
+                </div>
+                <div class="wallpaper-card" onclick="setWallpaper('zodiac', '#1b282ebf')">
+                    <img src="./images/bg-zodiac.jpeg">
+                    <p>Zodiac</p>
+                </div>
+                <div class="wallpaper-card" onclick="setWallpaper('amongus', '#3d3f3eb8')">
+                    <img src="./images/bg-amongus.jpeg">
+                    <p>Among Us</p>
+                </div>
+                <div class="wallpaper-card" onclick="setWallpaper('code', '#270d749c')">
+                    <img src="./images/bg-code.jpeg">
+                    <p>Code</p>
+                </div>
+                <div class="wallpaper-card" onclick="setWallpaper('gray', '#2e3d49c4')">
+                    <img src="./images/bg-gray.jpeg">
+                    <p>Gray</p>
+                </div>
+                <div class="wallpaper-card" onclick="setWallpaper('music', '#191919bd')">
+                    <img src="./images/bg-music.jpeg">
+                    <p>Music</p>
+                </div>
+                <div class="wallpaper-card" onclick="setWallpaper('pink', '#996382ab')">
+                    <img src="./images/bg-pink.jpeg">
+                    <p>Pink</p>
+                </div>
+                <div class="wallpaper-card" onclick="setWallpaper('purple', '#494290b8')">
+                    <img src="./images/bg-purple.jpeg">
+                    <p>Purple</p>
+                </div>
+                <div class="wallpaper-card" onclick="setWallpaper('sea', '#3e8ed69e')">
+                    <img src="./images/bg-sea.jpeg">
+                    <p>Sea</p>
+                </div>
+                <div class="wallpaper-card" onclick="setWallpaper('ghost', '#191919d9')">
+                    <img src="./images/bg-ghost.jpeg">
+                    <p>Ghost</p>
+                </div>
+                <div class="wallpaper-card" onclick="setWallpaper('traits', '#191919d6')">
+                    <img src="./images/bg-traits.jpeg">
+                    <p>Traits</p>
+                </div>
+            </div>
         </section>
     </main>
 

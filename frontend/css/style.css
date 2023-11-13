@@ -173,11 +173,13 @@ body::-webkit-scrollbar {
 }
 
 .btn-wallpaper {
-    position: absolute;
+    position: fixed;
     top: 5%;
     right: 2%;
     font-size: 32px !important;
     cursor: pointer;
+    background-color: black;
+    border-radius: 6px;
 }
 
 .wallpapers {
